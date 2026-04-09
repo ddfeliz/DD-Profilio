@@ -766,6 +766,7 @@ export default function PortfolioPage() {
                       className={`object-cover transition-transform duration-1000 group-hover:scale-110 filter saturate-50 group-hover:saturate-100 p-2 lg:p-0 ${isDark ? "brightness-75 group-hover:brightness-100" : ""}`} 
                       alt="Digital representation of global data network" 
                       src="https://lh3.googleusercontent.com/aida-public/AB6AXuDVEYM8UT5MYmsSrVK1W1kQjwmJC6xeJ9JqQhD-8QJ3NXgcl5JSjtTjkfJ1bKo46HrgMZgHXCKpWS4gwQl1mxqS-TawYpFz73nVJEvbRkvKvEFwEGs_rbfqbvPsypedThoBB1T25bJ0_5AoiJz0lzBtzVLxKMCh97hIn2rhXaw-3B74JOIXYNjcjs2WXcaLAO7DIs4X-sGRbnCC-gp5IQHby2ls6ZgUQtWNXCOVLjgQ4FXASKIpTGSrmM_2gdnR50knq3LxeA3q"
+                      priority
                     />
                     <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-20">
                       <div className="text-[10px] font-label text-[var(--port-primary-container)] tracking-widest px-4 py-2 bg-[var(--port-bg)]/80 backdrop-blur-md border border-[var(--port-primary-container)]/40 shadow-[0_0_15px_var(--port-primary-container)] truncate max-w-[80%] uppercase">
