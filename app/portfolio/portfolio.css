@@ -1,0 +1,168 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Manrope:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap');
+
+@theme inline {
+  --color-port-bg: var(--port-bg);
+  --color-port-surface: var(--port-surface);
+  --color-port-surface-low: var(--port-surface-low);
+  --color-port-surface-lowest: var(--port-surface-lowest);
+  --color-port-surface-highest: var(--port-surface-highest);
+  --color-port-primary: var(--port-primary);
+  --color-port-primary-container: var(--port-primary-container);
+  --color-port-secondary: var(--port-secondary);
+  --color-port-secondary-container: var(--port-secondary-container);
+  --color-port-on-surface: var(--port-on-surface);
+  --color-port-on-surface-variant: var(--port-on-surface-variant);
+  --color-port-on-bg: var(--port-on-bg);
+  --color-port-outline: var(--port-outline);
+  --color-port-outline-variant: var(--port-outline-variant);
+
+  --font-headline: 'Space Grotesk', sans-serif;
+  --font-body: 'Manrope', sans-serif;
+  --font-label: 'Space Grotesk', sans-serif;
+}
+
+/* Base Light Mode - Shared Defaults */
+.portfolio-wrapper {
+  --port-bg: #f8fafc;
+  --port-on-bg: #0f172a;
+  --port-surface: #ffffff;
+  --port-surface-low: #f1f5f9;
+  --port-surface-lowest: #e2e8f0;
+  --port-surface-highest: #e0e7ff;
+  --port-secondary: #0f766e;
+  --port-secondary-container: #115e59;
+  --port-on-surface: #1e293b;
+  --port-on-surface-variant: #475569;
+  --port-outline: #94a3b8;
+  --port-outline-variant: #cbd5e1;
+  --port-glass-bg: rgba(255, 255, 255, 0.6);
+  --port-nav-bg: rgba(255, 255, 255, 0.85);
+  --port-dot-color: #cbd5e1;
+}
+
+/* Base Dark Mode - Shared Defaults */
+.portfolio-wrapper.dark {
+  --port-bg: #0e1419;
+  --port-on-bg: #dee3ea;
+  --port-surface: #0e1419;
+  --port-surface-low: #1a2026;
+  --port-surface-lowest: #090f14;
+  --port-surface-highest: #2f353b;
+  --port-secondary: #9bd0cf;
+  --port-secondary-container: #1a5151;
+  --port-on-surface: #dee3ea;
+  --port-on-surface-variant: #b9cacb;
+  --port-outline: #849495;
+  --port-outline-variant: #3a494b;
+  --port-glass-bg: rgba(47, 53, 59, 0.4);
+  --port-nav-bg: rgba(2, 6, 23, 0.4);
+  --port-dot-color: #3a494b;
+}
+
+/* ==================== THEMES ==================== */
+
+/* CYAN THEME (DEFAULT) */
+.portfolio-wrapper.theme-cyan {
+  --port-primary: #0284c7;
+  --port-primary-container: #0369a1;
+  --port-neon-color: rgba(3, 105, 161, 0.15);
+  --port-nav-shadow: 0 0 20px rgba(3, 105, 161, 0.1);
+  --port-header-shadow: 0 0 8px rgba(3, 105, 161, 0.4);
+}
+.portfolio-wrapper.dark.theme-cyan {
+  --port-primary: #e1fdff;
+  --port-primary-container: #00f2ff;
+  --port-neon-color: rgba(0, 242, 255, 0.3);
+  --port-nav-shadow: 0 0 20px rgba(0, 242, 255, 0.1);
+  --port-header-shadow: 0 0 8px rgba(0, 242, 255, 0.8);
+}
+
+/* EMERALD THEME */
+.portfolio-wrapper.theme-emerald {
+  --port-primary: #059669;
+  --port-primary-container: #047857;
+  --port-neon-color: rgba(4, 120, 87, 0.15);
+  --port-nav-shadow: 0 0 20px rgba(4, 120, 87, 0.1);
+  --port-header-shadow: 0 0 8px rgba(4, 120, 87, 0.4);
+}
+.portfolio-wrapper.dark.theme-emerald {
+  --port-primary: #6ee7b7;
+  --port-primary-container: #10b981;
+  --port-neon-color: rgba(16, 185, 129, 0.3);
+  --port-nav-shadow: 0 0 20px rgba(16, 185, 129, 0.1);
+  --port-header-shadow: 0 0 8px rgba(16, 185, 129, 0.8);
+}
+
+/* PURPLE THEME */
+.portfolio-wrapper.theme-purple {
+  --port-primary: #9333ea;
+  --port-primary-container: #7e22ce;
+  --port-neon-color: rgba(126, 34, 206, 0.15);
+  --port-nav-shadow: 0 0 20px rgba(126, 34, 206, 0.1);
+  --port-header-shadow: 0 0 8px rgba(126, 34, 206, 0.4);
+}
+.portfolio-wrapper.dark.theme-purple {
+  --port-primary: #d8b4fe;
+  --port-primary-container: #a855f7;
+  --port-neon-color: rgba(168, 85, 247, 0.3);
+  --port-nav-shadow: 0 0 20px rgba(168, 85, 247, 0.1);
+  --port-header-shadow: 0 0 8px rgba(168, 85, 247, 0.8);
+}
+
+/* AMBER THEME */
+.portfolio-wrapper.theme-amber {
+  --port-primary: #d97706;
+  --port-primary-container: #b45309;
+  --port-neon-color: rgba(180, 83, 9, 0.15);
+  --port-nav-shadow: 0 0 20px rgba(180, 83, 9, 0.1);
+  --port-header-shadow: 0 0 8px rgba(180, 83, 9, 0.4);
+}
+.portfolio-wrapper.dark.theme-amber {
+  --port-primary: #fcd34d;
+  --port-primary-container: #f59e0b;
+  --port-neon-color: rgba(245, 158, 11, 0.3);
+  --port-nav-shadow: 0 0 20px rgba(245, 158, 11, 0.1);
+  --port-header-shadow: 0 0 8px rgba(245, 158, 11, 0.8);
+}
+
+/* Styles */
+.portfolio-wrapper {
+  background-color: var(--port-bg);
+  color: var(--port-on-bg);
+  font-family: var(--font-body);
+}
+
+.portfolio-wrapper .material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+  vertical-align: middle;
+}
+
+.portfolio-wrapper .glass-panel {
+  background: var(--port-glass-bg);
+  backdrop-filter: blur(20px);
+}
+
+.portfolio-wrapper .neon-glow {
+  box-shadow: 0 0 15px var(--port-neon-color), 0 0 40px var(--port-neon-color);
+}
+
+.portfolio-wrapper .bracket-tl { border-top: 2px solid var(--port-primary-container); border-left: 2px solid var(--port-primary-container); width: 12px; height: 12px; position: absolute; top: -2px; left: -2px; }
+.portfolio-wrapper .bracket-br { border-bottom: 2px solid var(--port-primary-container); border-right: 2px solid var(--port-primary-container); width: 12px; height: 12px; position: absolute; bottom: -2px; right: -2px; }
+
+.portfolio-wrapper .scanline {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--port-primary-container), transparent);
+}
+
+.portfolio-wrapper .nav-shadow { box-shadow: var(--port-nav-shadow); }
+.portfolio-wrapper .header-shadow { text-shadow: var(--port-header-shadow); }
+.portfolio-wrapper .text-header-styled { color: var(--port-primary-container); }
+.portfolio-wrapper .bg-dot-pattern { background-image: radial-gradient(circle at 2px 2px, var(--port-dot-color) 1px, transparent 0); background-size: 40px 40px; }
+.portfolio-wrapper .bg-grid-pattern { background-image: linear-gradient(to right, var(--port-primary-container) 1px, transparent 1px), linear-gradient(to bottom, var(--port-primary-container) 1px, transparent 1px); background-size: 100px 100px; }
+
+@keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+.portfolio-wrapper .animate-marquee { animation: marquee 30s linear infinite; }
+@keyframes pulse-subtle { 0%, 100% { opacity: 1; } 50% { opacity: 0.7; } }
+.portfolio-wrapper .animate-pulse-subtle { animation: pulse-subtle 3s ease-in-out infinite; }

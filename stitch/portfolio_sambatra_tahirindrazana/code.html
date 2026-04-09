@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SAMBATRA Tahirindrazana | ARCHIVE_01</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Manrope:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary": "#dbfff7",
+                    "on-secondary-container": "#8ec2c1",
+                    "primary-fixed": "#74f5ff",
+                    "on-primary-fixed": "#002022",
+                    "on-surface-variant": "#b9cacb",
+                    "surface-dim": "#0e1419",
+                    "on-primary-container": "#006a71",
+                    "tertiary-container": "#60f1dd",
+                    "inverse-surface": "#dee3ea",
+                    "on-tertiary-fixed": "#00201c",
+                    "on-secondary-fixed-variant": "#174e4e",
+                    "surface-bright": "#343a40",
+                    "on-secondary-fixed": "#002020",
+                    "tertiary-fixed-dim": "#46dcc9",
+                    "outline": "#849495",
+                    "background": "#0e1419",
+                    "surface-container": "#1a2026",
+                    "on-primary": "#00363a",
+                    "on-secondary": "#003737",
+                    "tertiary-fixed": "#69f9e5",
+                    "inverse-on-surface": "#2b3137",
+                    "surface-container-low": "#161c22",
+                    "primary": "#e1fdff",
+                    "inverse-primary": "#00696f",
+                    "outline-variant": "#3a494b",
+                    "on-tertiary-fixed-variant": "#005048",
+                    "secondary-container": "#1a5151",
+                    "on-error": "#690005",
+                    "secondary-fixed": "#b7eceb",
+                    "error-container": "#93000a",
+                    "on-surface": "#dee3ea",
+                    "surface-variant": "#2f353b",
+                    "surface-container-lowest": "#090f14",
+                    "on-error-container": "#ffdad6",
+                    "on-background": "#dee3ea",
+                    "primary-fixed-dim": "#00dbe7",
+                    "surface-container-high": "#252b30",
+                    "on-tertiary-container": "#006c61",
+                    "secondary-fixed-dim": "#9bd0cf",
+                    "primary-container": "#00f2ff",
+                    "surface-container-highest": "#2f353b",
+                    "error": "#ffb4ab",
+                    "surface-tint": "#00dbe7",
+                    "surface": "#0e1419",
+                    "secondary": "#9bd0cf",
+                    "on-tertiary": "#003731",
+                    "on-primary-fixed-variant": "#004f54"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Space Grotesk"],
+                    "body": ["Manrope"],
+                    "label": ["Space Grotesk"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        vertical-align: middle;
+      }
+      .glass-panel {
+        background: rgba(47, 53, 59, 0.4);
+        backdrop-filter: blur(20px);
+      }
+      .neon-glow {
+        box-shadow: 0 0 15px rgba(0, 242, 255, 0.3);
+      }
+      .bracket-tl { border-top: 2px solid #00dbe7; border-left: 2px solid #00dbe7; width: 12px; height: 12px; position: absolute; top: -2px; left: -2px; }
+      .bracket-br { border-bottom: 2px solid #00dbe7; border-right: 2px solid #00dbe7; width: 12px; height: 12px; position: absolute; bottom: -2px; right: -2px; }
+      .scanline {
+        width: 100%;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, #00f2ff, transparent);
+      }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body selection:bg-primary-container selection:text-on-primary-fixed">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full rounded-none bg-slate-950/40 backdrop-blur-xl z-50 shadow-[0_0_20px_rgba(0,242,255,0.1)]">
+<div class="flex justify-between items-center w-full px-8 py-4 max-w-full">
+<div class="text-2xl font-black tracking-tighter text-cyan-400 drop-shadow-[0_0_8px_rgba(0,242,255,0.8)] font-headline">
+                ARCHIVE_01
+            </div>
+<div class="hidden md:flex gap-8 items-center">
+<a class="font-['Space_Grotesk'] tracking-widest text-xs uppercase text-cyan-400 border-b-2 border-cyan-400 pb-1" href="#home">HOME</a>
+<a class="font-['Space_Grotesk'] tracking-widest text-xs uppercase text-slate-400 hover:text-cyan-300 transition-colors" href="#education">EDUCATION</a>
+<a class="font-['Space_Grotesk'] tracking-widest text-xs uppercase text-slate-400 hover:text-cyan-300 transition-colors" href="#experience">EXPERIENCE</a>
+<a class="font-['Space_Grotesk'] tracking-widest text-xs uppercase text-slate-400 hover:text-cyan-300 transition-colors" href="#skills">SKILLS</a>
+<a class="font-['Space_Grotesk'] tracking-widest text-xs uppercase text-slate-400 hover:text-cyan-300 transition-colors" href="#contact">CONTACT</a>
+</div>
+<div class="flex gap-4 items-center text-cyan-400">
+<span class="material-symbols-outlined cursor-pointer hover:bg-cyan-400/10 p-2 transition-transform duration-150 active:scale-95">terminal</span>
+<span class="material-symbols-outlined cursor-pointer hover:bg-cyan-400/10 p-2 transition-transform duration-150 active:scale-95">settings</span>
+</div>
+</div>
+</nav>
+<!-- Hero Section -->
+<section class="relative min-h-screen flex items-center pt-24 px-8 overflow-hidden" id="home">
+<div class="absolute inset-0 z-0 opacity-20 pointer-events-none" style="background-image: radial-gradient(circle at 2px 2px, #3a494b 1px, transparent 0); background-size: 40px 40px;"></div>
+<div class="container mx-auto grid grid-cols-1 md:grid-cols-12 gap-12 relative z-10">
+<div class="md:col-span-7 flex flex-col justify-center">
+<div class="inline-block mb-4 px-3 py-1 bg-primary-container/10 border border-primary-container/30 text-primary-container font-label text-xs tracking-widest">
+                    SYSTEM_INIT :: BIO_CORE_ONLINE
+                </div>
+<h1 class="text-6xl md:text-8xl font-headline font-bold text-primary mb-6 leading-none tracking-tighter">
+                    SAMBATRA<br/>
+<span class="text-primary-container drop-shadow-[0_0_15px_rgba(0,242,255,0.4)]">TAHIRINDRAZANA</span>
+</h1>
+<p class="text-lg md:text-xl text-on-surface-variant max-w-xl mb-10 leading-relaxed">
+                    Full-stack Engineer specializing in high-performance synthetic interfaces and distributed architectures. Bridging the gap between human intuition and machine precision.
+                </p>
+<div class="flex flex-wrap gap-6">
+<div class="flex items-center gap-3 bg-surface-container-low px-6 py-4 border-l-4 border-primary-container relative">
+<span class="material-symbols-outlined text-primary-container">location_on</span>
+<div>
+<div class="text-[10px] text-outline uppercase font-label tracking-widest">LOCATION_LOCATOR</div>
+<div class="text-on-surface font-medium">Andamasiny, Toliara</div>
+</div>
+</div>
+<div class="flex items-center gap-3 bg-surface-container-low px-6 py-4 border-l-4 border-primary-container relative">
+<span class="material-symbols-outlined text-primary-container">mail</span>
+<div>
+<div class="text-[10px] text-outline uppercase font-label tracking-widest">UPLINK_CHANNEL</div>
+<div class="text-on-surface font-medium">sambatratahirindrazana@gmail.com</div>
+</div>
+</div>
+</div>
+</div>
+<div class="md:col-span-5 relative hidden md:block">
+<div class="aspect-square relative glass-panel border border-outline-variant/20 neon-glow overflow-hidden">
+<div class="bracket-tl"></div>
+<div class="bracket-br"></div>
+<img class="w-full h-full object-cover grayscale brightness-75 contrast-125 opacity-60" data-alt="Futuristic glowing hardware circuit boards with neon cyan lights and deep blue shadows in a high-tech laboratory setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCs85eW2zTUzixW2REbn1qqyvwhNTRnJ42ahu-vtRwBBdUqzF8zQ6fHm4Hli57Z-jmAA5agHAkKj65LnjE4uqEeGf5GagUXeDj1MnZrQAhyKfnejl5ZXsdZ4C290AjabQPsFXAwSCuos5Zw0SQ3rrEKINXqvL9i8KdSTMwLP15-vY-VDp7CzT92qXDquCZg-YIooQkYASraGxWbuvLDZfuC5bw6XZgg6Baqm98relbKRQlff22IKPzgeFXWjxvBZsl_hXWD2HZp"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
+<div class="absolute bottom-8 left-8 right-8">
+<div class="scanline mb-2"></div>
+<div class="flex justify-between font-label text-[10px] text-primary-container/80 tracking-widest">
+<span>SCANNING_IDENTITY...</span>
+<span>MATCH_CONFIRMED: 100%</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Education Section -->
+<section class="py-24 px-8 bg-surface-container-lowest" id="education">
+<div class="container mx-auto">
+<div class="mb-16">
+<h2 class="text-4xl font-headline font-bold text-on-surface flex items-center gap-4">
+<span class="text-primary-container">01.</span> EDUCATION_PATH
+                </h2>
+<div class="h-1 w-32 bg-primary-container mt-2"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12 relative">
+<div class="absolute left-0 top-0 bottom-0 w-px bg-outline-variant/30 hidden md:block"></div>
+<div class="relative pl-8 mb-12">
+<div class="absolute left-[-5px] top-2 w-[10px] h-[10px] bg-primary-container rotate-45"></div>
+<div class="text-primary-container font-label text-sm mb-2 tracking-widest">2024 — 2026</div>
+<div class="glass-panel p-8 border border-outline-variant/10 relative group hover:border-primary-container/40 transition-all duration-500">
+<h3 class="text-2xl font-headline font-bold text-on-surface mb-2">MASTER'S DEGREE</h3>
+<p class="text-secondary font-medium mb-4">l'Ecole Nationale de l'Informatique Fianarantsoa</p>
+<p class="text-on-surface-variant text-sm leading-relaxed">
+                            Advanced specialisation in software engineering, system architecture, and algorithmic optimization within the national intelligence infrastructure.
+                        </p>
+</div>
+</div>
+<div class="relative pl-8">
+<div class="absolute left-[-5px] top-2 w-[10px] h-[10px] bg-primary-container rotate-45"></div>
+<div class="text-primary-container font-label text-sm mb-2 tracking-widest">2021 — 2024</div>
+<div class="glass-panel p-8 border border-outline-variant/10 relative group hover:border-primary-container/40 transition-all duration-500">
+<h3 class="text-2xl font-headline font-bold text-on-surface mb-2">LICENSE DEGREE</h3>
+<p class="text-secondary font-medium mb-4">l'Ecole Nationale de l'Informatique Fianarantsoa</p>
+<p class="text-on-surface-variant text-sm leading-relaxed">
+                            Foundational computation, database management, and network protocols. Graduated with honors in core programming paradigms.
+                        </p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Experience Section -->
+<section class="py-24 px-8 bg-background" id="experience">
+<div class="container mx-auto">
+<div class="flex justify-between items-end mb-16">
+<div>
+<h2 class="text-4xl font-headline font-bold text-on-surface flex items-center gap-4">
+<span class="text-primary-container">02.</span> DEPLOYED_PROJECTS
+                    </h2>
+<div class="h-1 w-32 bg-primary-container mt-2"></div>
+</div>
+<div class="hidden md:block font-label text-xs text-outline tracking-[0.3em]">TOTAL_ENTRIES: 04</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-1 px-1 bg-outline-variant/10">
+<!-- Project 1 -->
+<div class="bg-surface p-8 border-r border-outline-variant/10 group hover:bg-surface-container-low transition-all duration-300">
+<div class="flex justify-between items-start mb-6">
+<span class="material-symbols-outlined text-4xl text-primary-container">traffic</span>
+<div class="text-[10px] font-label text-outline px-2 py-1 border border-outline-variant">ACTIVE_SYNC</div>
+</div>
+<h3 class="text-xl font-headline font-bold mb-3 group-hover:text-primary-container transition-colors">Système de feux tricolores</h3>
+<p class="text-on-surface-variant text-sm mb-6 leading-relaxed">
+                        Intelligent traffic management system using real-time predictive analytics and reactive UI.
+                    </p>
+<div class="flex flex-wrap gap-2">
+<span class="text-[9px] px-2 py-1 bg-surface-container-highest text-secondary uppercase tracking-widest">TypeScript</span>
+<span class="text-[9px] px-2 py-1 bg-surface-container-highest text-secondary uppercase tracking-widest">NextJS</span>
+</div>
+</div>
+<!-- Project 2 -->
+<div class="bg-surface p-8 border-r border-outline-variant/10 group hover:bg-surface-container-low transition-all duration-300">
+<div class="flex justify-between items-start mb-6">
+<span class="material-symbols-outlined text-4xl text-primary-container">groups</span>
+<div class="text-[10px] font-label text-outline px-2 py-1 border border-outline-variant">SYSTEM_CORE</div>
+</div>
+<h3 class="text-xl font-headline font-bold mb-3 group-hover:text-primary-container transition-colors">Vacations Correcteurs</h3>
+<p class="text-on-surface-variant text-sm mb-6 leading-relaxed">
+                        Full-stack platform for managing academic compensations and corrector workflow tracking.
+                    </p>
+<div class="flex flex-wrap gap-2">
+<span class="text-[9px] px-2 py-1 bg-surface-container-highest text-secondary uppercase tracking-widest">React</span>
+<span class="text-[9px] px-2 py-1 bg-surface-container-highest text-secondary uppercase tracking-widest">Express</span>
+<span class="text-[9px] px-2 py-1 bg-surface-container-highest text-secondary uppercase tracking-widest">MongoDB</span>
+</div>
+</div>
+<!-- Project 3 -->
+<div class="bg-surface p-8 group hover:bg-surface-container-low transition-all duration-300">
+<div class="flex justify-between items-start mb-6">
+<span class="material-symbols-outlined text-4xl text-primary-container">bolt</span>
+<div class="text-[10px] font-label text-outline px-2 py-1 border border-outline-variant">INTERN_01</div>
+</div>
+<h3 class="text-xl font-headline font-bold mb-3 group-hover:text-primary-container transition-colors">JIRAMA Internship</h3>
+<p class="text-on-surface-variant text-sm mb-6 leading-relaxed">
+                        Optimizing internal utility monitoring tools and data visualization for energy distribution.
+                    </p>
+<div class="flex flex-wrap gap-2">
+<span class="text-[9px] px-2 py-1 bg-surface-container-highest text-secondary uppercase tracking-widest">Data Management</span>
+<span class="text-[9px] px-2 py-1 bg-surface-container-highest text-secondary uppercase tracking-widest">PHP</span>
+</div>
+</div>
+</div>
+<!-- Project 4 (Asymmetric Large) -->
+<div class="mt-1 bg-surface p-12 group hover:bg-surface-container-low transition-all duration-300 flex flex-col md:flex-row items-center gap-12">
+<div class="flex-1">
+<div class="flex items-center gap-4 mb-6">
+<span class="material-symbols-outlined text-5xl text-primary-container">account_balance</span>
+<div class="text-[10px] font-label text-outline px-2 py-1 border border-outline-variant">INTERN_02</div>
+</div>
+<h3 class="text-3xl font-headline font-bold mb-4 group-hover:text-primary-container transition-colors">Université du Toliara</h3>
+<p class="text-on-surface-variant leading-relaxed max-w-2xl mb-8">
+                        Implementation of centralized academic tracking modules and digital archiving protocols for student records. Specialized in legacy system integration and security layers.
+                    </p>
+<div class="flex flex-wrap gap-3">
+<span class="text-xs px-4 py-2 bg-surface-container-highest text-primary-container font-label uppercase tracking-[0.2em] border border-primary-container/20">SQL_CORE</span>
+<span class="text-xs px-4 py-2 bg-surface-container-highest text-primary-container font-label uppercase tracking-[0.2em] border border-primary-container/20">ADMIN_UI</span>
+</div>
+</div>
+<div class="w-full md:w-1/3 aspect-video relative overflow-hidden glass-panel border border-outline-variant/30">
+<img class="w-full h-full object-cover opacity-50 group-hover:scale-110 transition-transform duration-700" data-alt="Digital representation of global data network with glowing blue nodes and connections on a dark background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDVEYM8UT5MYmsSrVK1W1kQjwmJC6xeJ9JqQhD-8QJ3NXgcl5JSjtTjkfJ1bKo46HrgMZgHXCKpWS4gwQl1mxqS-TawYpFz73nVJEvbRkvKvEFwEGs_rbfqbvPsypedThoBB1T25bJ0_5AoiJz0lzBtzVLxKMCh97hIn2rhXaw-3B74JOIXYNjcjs2WXcaLAO7DIs4X-sGRbnCC-gp5IQHby2ls6ZgUQtWNXCOVLjgQ4FXASKIpTGSrmM_2gdnR50knq3LxeA3q"/>
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="text-[10px] font-label text-primary-container tracking-widest px-4 py-2 bg-background/80 backdrop-blur-md">DATA_STREAM_ACTIVE</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Technical Skills Section (Gauges) -->
+<section class="py-24 px-8 bg-surface-container-low relative overflow-hidden" id="skills">
+<div class="container mx-auto relative z-10">
+<div class="mb-16">
+<h2 class="text-4xl font-headline font-bold text-on-surface flex items-center gap-4">
+<span class="text-primary-container">03.</span> TECH_STACK
+                </h2>
+<div class="h-1 w-32 bg-primary-container mt-2"></div>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+<!-- Skill Gauges -->
+<div class="glass-panel p-6 border border-outline-variant/20 flex flex-col items-center group">
+<div class="relative w-24 h-24 mb-4 flex items-center justify-center">
+<svg class="w-full h-full transform -rotate-90">
+<circle class="text-outline-variant/20" cx="48" cy="48" fill="transparent" r="40" stroke="currentColor" stroke-width="2"></circle>
+<circle class="text-primary-container transition-all duration-1000" cx="48" cy="48" fill="transparent" r="40" stroke="currentColor" stroke-dasharray="251.2" stroke-dashoffset="25.12" stroke-width="4"></circle>
+</svg>
+<span class="absolute font-headline font-bold text-xl">90%</span>
+</div>
+<div class="font-label text-xs tracking-widest uppercase text-outline group-hover:text-primary-container">NEXTJS / REACT</div>
+</div>
+<div class="glass-panel p-6 border border-outline-variant/20 flex flex-col items-center group">
+<div class="relative w-24 h-24 mb-4 flex items-center justify-center">
+<svg class="w-full h-full transform -rotate-90">
+<circle class="text-outline-variant/20" cx="48" cy="48" fill="transparent" r="40" stroke="currentColor" stroke-width="2"></circle>
+<circle class="text-primary-container transition-all duration-1000" cx="48" cy="48" fill="transparent" r="40" stroke="currentColor" stroke-dasharray="251.2" stroke-dashoffset="37.68" stroke-width="4"></circle>
+</svg>
+<span class="absolute font-headline font-bold text-xl">85%</span>
+</div>
+<div class="font-label text-xs tracking-widest uppercase text-outline group-hover:text-primary-container">TYPESCRIPT</div>
+</div>
+<div class="glass-panel p-6 border border-outline-variant/20 flex flex-col items-center group">
+<div class="relative w-24 h-24 mb-4 flex items-center justify-center">
+<svg class="w-full h-full transform -rotate-90">
+<circle class="text-outline-variant/20" cx="48" cy="48" fill="transparent" r="40" stroke="currentColor" stroke-width="2"></circle>
+<circle class="text-primary-container transition-all duration-1000" cx="48" cy="48" fill="transparent" r="40" stroke="currentColor" stroke-dasharray="251.2" stroke-dashoffset="50.24" stroke-width="4"></circle>
+</svg>
+<span class="absolute font-headline font-bold text-xl">80%</span>
+</div>
+<div class="font-label text-xs tracking-widest uppercase text-outline group-hover:text-primary-container">PYTHON</div>
+</div>
+<div class="glass-panel p-6 border border-outline-variant/20 flex flex-col items-center group">
+<div class="relative w-24 h-24 mb-4 flex items-center justify-center">
+<svg class="w-full h-full transform -rotate-90">
+<circle class="text-outline-variant/20" cx="48" cy="48" fill="transparent" r="40" stroke="currentColor" stroke-width="2"></circle>
+<circle class="text-primary-container transition-all duration-1000" cx="48" cy="48" fill="transparent" r="40" stroke="currentColor" stroke-dasharray="251.2" stroke-dashoffset="62.8" stroke-width="4"></circle>
+</svg>
+<span class="absolute font-headline font-bold text-xl">75%</span>
+</div>
+<div class="font-label text-xs tracking-widest uppercase text-outline group-hover:text-primary-container">DATABASE_SQL_MDB</div>
+</div>
+</div>
+<!-- Grid Skills -->
+<div class="mt-12 grid grid-cols-2 md:grid-cols-4 gap-4">
+<div class="p-4 bg-surface-container-highest/30 border-l-2 border-primary-container flex justify-between items-center">
+<span class="font-label text-xs">JAVA_CORE</span>
+<span class="material-symbols-outlined text-sm text-primary-container">verified</span>
+</div>
+<div class="p-4 bg-surface-container-highest/30 border-l-2 border-primary-container flex justify-between items-center">
+<span class="font-label text-xs">PHP_MODERN</span>
+<span class="material-symbols-outlined text-sm text-primary-container">verified</span>
+</div>
+<div class="p-4 bg-surface-container-highest/30 border-l-2 border-primary-container flex justify-between items-center">
+<span class="font-label text-xs">MYSQL_ARCH</span>
+<span class="material-symbols-outlined text-sm text-primary-container">verified</span>
+</div>
+<div class="p-4 bg-surface-container-highest/30 border-l-2 border-primary-container flex justify-between items-center">
+<span class="font-label text-xs">REST_API</span>
+<span class="material-symbols-outlined text-sm text-primary-container">verified</span>
+</div>
+</div>
+</div>
+<!-- Decorative Grid Background -->
+<div class="absolute inset-0 opacity-5 pointer-events-none" style="background-image: linear-gradient(to right, #00f2ff 1px, transparent 1px), linear-gradient(to bottom, #00f2ff 1px, transparent 1px); background-size: 100px 100px;"></div>
+</section>
+<!-- Languages & Contact (Combined) -->
+<section class="py-24 px-8 bg-background" id="contact">
+<div class="container mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-24">
+<div>
+<h2 class="text-4xl font-headline font-bold text-on-surface flex items-center gap-4 mb-12">
+<span class="text-primary-container">04.</span> LINGUISTIC_CAPS
+                    </h2>
+<div class="space-y-8">
+<div>
+<div class="flex justify-between font-label text-xs mb-2 tracking-widest">
+<span>MALAGASY</span>
+<span class="text-primary-container">NATIVE</span>
+</div>
+<div class="h-1 w-full bg-outline-variant/30">
+<div class="h-full w-full bg-primary-container shadow-[0_0_10px_#00f2ff]"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between font-label text-xs mb-2 tracking-widest">
+<span>FRENCH</span>
+<span class="text-primary-container">PROFICIENT</span>
+</div>
+<div class="h-1 w-full bg-outline-variant/30">
+<div class="h-full w-[85%] bg-primary-container shadow-[0_0_10px_#00f2ff]"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between font-label text-xs mb-2 tracking-widest">
+<span>ENGLISH</span>
+<span class="text-primary-container">INTERMEDIATE</span>
+</div>
+<div class="h-1 w-full bg-outline-variant/30">
+<div class="h-full w-[70%] bg-primary-container shadow-[0_0_10px_#00f2ff]"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="glass-panel p-10 border border-primary-container/20 relative">
+<div class="bracket-tl"></div>
+<div class="bracket-br"></div>
+<h2 class="text-3xl font-headline font-bold text-on-surface mb-8 tracking-tight">ESTABLISH_CONNECTION</h2>
+<form class="space-y-6">
+<div class="relative group">
+<label class="block text-[10px] font-label text-outline uppercase tracking-widest mb-2 group-focus-within:text-primary-container transition-colors">NAME_IDENTIFIER</label>
+<input class="w-full bg-surface-container-lowest border-none outline-none focus:ring-0 text-on-surface p-4 border-b border-outline-variant/30 focus:border-primary-container transition-colors" placeholder="ENTER NAME..." type="text"/>
+</div>
+<div class="relative group">
+<label class="block text-[10px] font-label text-outline uppercase tracking-widest mb-2 group-focus-within:text-primary-container transition-colors">COMM_UPLINK (EMAIL)</label>
+<input class="w-full bg-surface-container-lowest border-none outline-none focus:ring-0 text-on-surface p-4 border-b border-outline-variant/30 focus:border-primary-container transition-colors" placeholder="ENTER EMAIL..." type="email"/>
+</div>
+<div class="relative group">
+<label class="block text-[10px] font-label text-outline uppercase tracking-widest mb-2 group-focus-within:text-primary-container transition-colors">ENCRYPTED_MESSAGE</label>
+<textarea class="w-full bg-surface-container-lowest border-none outline-none focus:ring-0 text-on-surface p-4 border-b border-outline-variant/30 focus:border-primary-container transition-colors" placeholder="ENTER MESSAGE..." rows="4"></textarea>
+</div>
+<button class="w-full bg-primary-container text-on-primary-fixed font-headline font-bold py-4 uppercase tracking-[0.2em] hover:shadow-[0_0_25px_#00f2ff] transition-all duration-300">
+                            SEND_PACKET
+                        </button>
+</form>
+</div>
+</div>
+</div>
+</section>
+<!-- Data Ticker -->
+<div class="w-full bg-surface-container-lowest py-2 overflow-hidden border-y border-outline-variant/10">
+<div class="whitespace-nowrap font-label text-[10px] text-outline-variant tracking-widest animate-marquee inline-block">
+            SYSTEM_STATUS: OPTIMAL // ARCHIVE_VERSION: 1.0.4 // GEOLOCATION: 23.3516° S, 43.6673° E // NETWORK_SECURED: TRUE // LATEST_COMMIT: 0x8F2A90 // PROCESSING_CORES: 16 // MEMORY_LEAK: NONE // 
+            SYSTEM_STATUS: OPTIMAL // ARCHIVE_VERSION: 1.0.4 // GEOLOCATION: 23.3516° S, 43.6673° E // NETWORK_SECURED: TRUE // LATEST_COMMIT: 0x8F2A90 // PROCESSING_CORES: 16 // MEMORY_LEAK: NONE // 
+        </div>
+</div>
+<!-- Footer -->
+<footer class="w-full border-t border-cyan-500/20 bg-slate-950/80 backdrop-blur-md">
+<div class="flex flex-col md:flex-row justify-between items-center px-12 py-6 gap-4">
+<div class="font-['Space_Grotesk'] text-[10px] tracking-[0.2em] uppercase text-cyan-500">
+                SYSTEM_STATUS: OPERATIONAL // 2024
+            </div>
+<div class="flex gap-8">
+<a class="font-['Space_Grotesk'] text-[10px] tracking-[0.2em] uppercase text-slate-500 hover:text-cyan-400 transition-all duration-300 animate-pulse-subtle hover:scale-105" href="#">GITHUB</a>
+<a class="font-['Space_Grotesk'] text-[10px] tracking-[0.2em] uppercase text-slate-500 hover:text-cyan-400 transition-all duration-300 animate-pulse-subtle hover:scale-105" href="#">LINKEDIN</a>
+<a class="font-['Space_Grotesk'] text-[10px] tracking-[0.2em] uppercase text-slate-500 hover:text-cyan-400 transition-all duration-300 animate-pulse-subtle hover:scale-105" href="#">X_CORP</a>
+<a class="font-['Space_Grotesk'] text-[10px] tracking-[0.2em] uppercase text-slate-500 hover:text-cyan-400 transition-all duration-300 animate-pulse-subtle hover:scale-105" href="#">CODEPEN</a>
+</div>
+</div>
+</footer>
+<style>
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .animate-marquee {
+            animation: marquee 30s linear infinite;
+        }
+        @keyframes pulse-subtle {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        .animate-pulse-subtle {
+            animation: pulse-subtle 3s ease-in-out infinite;
+        }
+    </style>
+</body></html>
