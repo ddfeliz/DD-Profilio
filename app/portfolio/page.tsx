@@ -502,10 +502,32 @@ export default function PortfolioPage() {
           <Reveal>
             <div className="mb-24 flex flex-col md:flex-row justify-between items-start md:items-end gap-6">
               <div>
-                <h2 className="text-4xl md:text-5xl font-headline font-bold text-port-on-surface flex items-center gap-4">
-                  <span className="text-port-primary-container font-black">01.</span> {t.edu.title}
+                <h2 className="text-4xl md:text-5xl font-headline font-bold text-port-on-surface flex items-center gap-4 group/h">
+                  <span className="text-port-primary-container font-black relative overflow-hidden">
+                    01.
+                    <motion.div 
+                      animate={{ x: ['-100%', '100%'] }} 
+                      transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+                      className="absolute inset-y-0 w-1/3 bg-white/20 skew-x-12 blur-sm"
+                    />
+                  </span> 
+                  {t.edu.title}
                 </h2>
-                <div className="h-1 w-48 bg-port-primary-container mt-4 shadow-[0_0_15px_var(--port-primary-container)]"></div>
+                <div className="relative h-1.5 w-64 mt-4 overflow-hidden">
+                  <div className="absolute inset-0 bg-port-primary-container/20"></div>
+                  <motion.div 
+                    initial={{ width: 0 }}
+                    whileInView={{ width: '100%' }}
+                    viewport={{ once: false }}
+                    transition={{ duration: 1.2, ease: "circOut" }}
+                    className="absolute inset-y-0 left-0 bg-[var(--port-primary-container)] shadow-[0_0_15px_var(--port-primary-container)]"
+                  />
+                  <motion.div 
+                    animate={{ left: ['-10%', '110%'] }}
+                    transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                    className="absolute inset-y-0 w-8 bg-white/40 blur-md z-10"
+                  />
+                </div>
               </div>
               <div className="glass-panel px-4 py-2 flex items-center gap-3 border border-port-primary-container/30 text-port-primary-container font-label text-xs tracking-[0.2em] bg-port-primary-container/5">
                 <GraduationCap size={18} />
@@ -516,7 +538,16 @@ export default function PortfolioPage() {
           
           <div className="flex flex-col md:flex-row gap-12 lg:gap-16 relative">
             {/* Connecting power line between cards (desktop only) */}
-            <div className="hidden md:block absolute top-[120px] left-1/4 right-1/4 h-[2px] bg-gradient-to-r from-[var(--port-primary-container)]/50 via-transparent to-[var(--port-primary-container)]/50 z-0"></div>
+            <div className="hidden md:block absolute top-[120px] left-1/4 right-1/4 h-[2px] bg-port-primary-container/10 z-0">
+              <motion.div 
+                animate={{ 
+                  left: ['-100%', '200%'],
+                  opacity: [0, 1, 0]
+                }}
+                transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+                className="absolute inset-y-0 w-40 bg-gradient-to-r from-transparent via-port-primary-container to-transparent shadow-[0_0_15px_var(--port-primary-container)]"
+              />
+            </div>
             
             {/* MASTER'S DEGREE */}
             <div className="w-full md:w-1/2 relative z-10 mt-6 md:mt-0">
@@ -589,7 +620,7 @@ export default function PortfolioPage() {
                     </div>
                     
                     <p className="text-port-secondary font-medium mb-6 flex items-start gap-3 text-lg leading-snug">
-                      <span className="text-[var(--port-primary-container)] font-black mt-1">&gt;</span> l'Ecole Nationale de l'Informatique Fianarantsoa
+                      <span className="text-[var(--port-primary-container)] font-black mt-1">&gt;</span> {t.edu.school}
                     </p>
                     <p className="text-port-on-surface-variant leading-relaxed relative z-10 flex-grow font-body">
                       {t.edu.lDesc}
@@ -617,10 +648,27 @@ export default function PortfolioPage() {
           <Reveal>
             <div className="flex justify-between items-end mb-16">
               <div>
-                <h2 className="text-4xl font-headline font-bold text-port-on-surface flex items-center gap-4">
-                  <span className="text-port-primary-container">02.</span> {t.exp.title}
+                <h2 className="text-4xl font-headline font-bold text-port-on-surface flex items-center gap-4 group/h">
+                  <span className="text-port-primary-container font-black relative overflow-hidden">
+                    02.
+                    <motion.div 
+                      animate={{ x: ['-100%', '100%'] }} 
+                      transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+                      className="absolute inset-y-0 w-1/3 bg-white/20 skew-x-12 blur-sm"
+                    />
+                  </span> 
+                  {t.exp.title}
                 </h2>
-                <div className="h-1 w-32 bg-port-primary-container mt-2"></div>
+                <div className="relative h-1.5 w-48 mt-4 overflow-hidden">
+                  <div className="absolute inset-0 bg-port-primary-container/20"></div>
+                  <motion.div 
+                    initial={{ width: 0 }}
+                    whileInView={{ width: '100%' }}
+                    viewport={{ once: false }}
+                    transition={{ duration: 1.2, ease: "circOut" }}
+                    className="absolute inset-y-0 left-0 bg-[var(--port-primary-container)] shadow-[0_0_15px_var(--port-primary-container)]"
+                  />
+                </div>
               </div>
               <div className="hidden md:flex items-center gap-3 font-label text-xs text-port-outline tracking-[0.3em]">
                 <FolderGit2 size={16} /> {t.exp.totalEntries}
@@ -701,7 +749,7 @@ export default function PortfolioPage() {
                   </p>
                   
                   <div className="flex flex-wrap gap-2 mb-8">
-                    {['Network architecture', 'DevOps', 'Data Center', 'Maintenance'].map(tech => (
+                    {[t.edu.tagNet, 'DevOps', 'Data Center', 'Maintenance'].map(tech => (
                       <span key={tech} className="text-[10px] font-label px-3 py-1 bg-port-bg border border-port-outline-variant/30 text-port-outline uppercase tracking-widest hover:border-[var(--port-primary-container)] hover:text-[var(--port-primary-container)] transition-colors cursor-pointer">
                         {tech}
                       </span>
@@ -737,10 +785,27 @@ export default function PortfolioPage() {
         <div className="container mx-auto relative z-10">
           <Reveal>
             <div className="mb-16">
-              <h2 className="text-4xl font-headline font-bold text-port-on-surface flex items-center gap-4">
-                <span className="text-port-primary-container">03.</span> {t.skills.title}
+              <h2 className="text-4xl font-headline font-bold text-port-on-surface flex items-center gap-4 group/h">
+                <span className="text-port-primary-container font-black relative overflow-hidden text-port-primary-container">
+                  03.
+                  <motion.div 
+                    animate={{ x: ['-100%', '100%'] }} 
+                    transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+                    className="absolute inset-y-0 w-1/3 bg-white/20 skew-x-12 blur-sm"
+                  />
+                </span> 
+                {t.skills.title}
               </h2>
-              <div className="h-1 w-32 bg-port-primary-container mt-2"></div>
+              <div className="relative h-1.5 w-48 mt-4 overflow-hidden">
+                <div className="absolute inset-0 bg-port-primary-container/20"></div>
+                <motion.div 
+                  initial={{ width: 0 }}
+                  whileInView={{ width: '100%' }}
+                  viewport={{ once: false }}
+                  transition={{ duration: 1.2, ease: "circOut" }}
+                  className="absolute inset-y-0 left-0 bg-[var(--port-primary-container)] shadow-[0_0_15px_var(--port-primary-container)]"
+                />
+              </div>
             </div>
           </Reveal>
           
@@ -843,10 +908,27 @@ export default function PortfolioPage() {
             <Reveal>
               <div className="h-full flex flex-col justify-center">
                 <div className="mb-12">
-                  <h2 className="text-4xl font-headline font-bold text-port-on-surface flex items-center gap-4">
-                    <span className="text-port-primary-container">04.</span> {t.contact.title}
+                  <h2 className="text-4xl font-headline font-bold text-port-on-surface flex items-center gap-4 group/h">
+                    <span className="text-port-primary-container font-black relative overflow-hidden text-port-primary-container">
+                      04.
+                      <motion.div 
+                        animate={{ x: ['-100%', '100%'] }} 
+                        transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+                        className="absolute inset-y-0 w-1/3 bg-white/20 skew-x-12 blur-sm"
+                      />
+                    </span> 
+                    {t.contact.title}
                   </h2>
-                  <div className="h-1 w-32 bg-port-primary-container mt-4 shadow-[0_0_15px_var(--port-primary-container)]"></div>
+                  <div className="relative h-1.5 w-48 mt-4 overflow-hidden">
+                    <div className="absolute inset-0 bg-port-primary-container/20"></div>
+                    <motion.div 
+                      initial={{ width: 0 }}
+                      whileInView={{ width: '100%' }}
+                      viewport={{ once: false }}
+                      transition={{ duration: 1.2, ease: "circOut" }}
+                      className="absolute inset-y-0 left-0 bg-[var(--port-primary-container)] shadow-[0_0_15px_var(--port-primary-container)]"
+                    />
+                  </div>
                   <div className="mt-6 flex items-center gap-3 text-[10px] font-label text-port-primary-container uppercase tracking-[0.2em] bg-[var(--port-primary-container)]/10 border border-port-primary-container/30 px-4 py-2 inline-flex">
                     <Globe2 size={16} />
                     <span>VOICE_SYNTHESIS_MODULES</span>
