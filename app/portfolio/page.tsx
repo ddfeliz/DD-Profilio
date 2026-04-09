@@ -2,8 +2,8 @@
 
 import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
-import { motion, useMotionValue, useSpring, useTransform, animate, useInView, Variants, useScroll } from "framer-motion";
-import { Sun, Moon, Terminal, Settings, MapPin, Mail, Activity, Users, Zap, Landmark, CheckCircle2, Loader2, Code2, Database, Layers, Server, Cpu, FolderGit2, ExternalLink, GraduationCap, Award, BookOpen, Globe2, Radio, User, MessageSquare, Send, Crosshair, Fingerprint, Scan, QrCode, FileDown } from "lucide-react";
+import { motion, useMotionValue, useSpring, useTransform, animate, useInView, Variants, useScroll, AnimatePresence } from "framer-motion";
+import { Sun, Moon, Terminal, Settings, MapPin, Mail, Activity, Users, Zap, Landmark, CheckCircle2, Loader2, Code2, Database, Layers, Server, Cpu, FolderGit2, ExternalLink, GraduationCap, Award, BookOpen, Globe2, Radio, User, MessageSquare, Send, Crosshair, Fingerprint, Scan, QrCode, FileDown, Menu, X } from "lucide-react";
 import { translations, Language } from "./translations";
 import "./portfolio.css";
 
@@ -103,6 +103,7 @@ function StaggerText({ text, className = "", delay = 0 }: { text: string, classN
 export default function PortfolioPage() {
   const [isDark, setIsDark] = useState(true);
   const [settingsOpen, setSettingsOpen] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [lang, setLang] = useState<Language>('en');
   const [theme, setTheme] = useState('theme-cyan');
   const [activeTab, setActiveTab] = useState('home');
@@ -235,7 +236,16 @@ export default function PortfolioPage() {
             <FileDown size={14} className="group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-transform duration-300" />
             <span>{t.downloadCv}</span>
           </motion.a>
-          <div ref={settingsRef} className="flex gap-4 items-center text-port-primary-container relative">
+          
+          <div ref={settingsRef} className="flex gap-2 sm:gap-4 items-center text-port-primary-container relative">
+            {/* Mobile Menu Toggle */}
+            <button 
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="lg:hidden p-2 border border-[var(--port-primary-container)]/30 bg-[var(--port-primary-container)]/5 text-[var(--port-primary-container)] hover:bg-[var(--port-primary-container)]/20 transition-all z-[60]"
+            >
+              {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+            </button>
+
             <button 
               onClick={() => setIsDark(!isDark)}
               className="cursor-pointer bg-[var(--port-primary-container)]/5 hover:bg-[var(--port-primary-container)]/20 p-2.5 rounded-lg border border-[var(--port-primary-container)]/20 hover:border-[var(--port-primary-container)]/50 transition-all duration-300 active:scale-95 group shadow-lg"
@@ -258,7 +268,7 @@ export default function PortfolioPage() {
               <motion.div
                 initial={{ opacity: 0, y: 16, scale: 0.92, filter: 'blur(6px)' }}
                 animate={{ opacity: 1, y: 0, scale: 1, filter: 'blur(0px)' }}
-                className="absolute top-16 right-0 w-80 glass-panel border border-[var(--port-primary-container)]/30 shadow-[0_20px_60px_rgba(0,0,0,0.6),0_0_40px_var(--port-primary-container)] flex flex-col text-port-on-surface overflow-hidden z-50"
+                className="absolute top-16 right-0 w-[calc(100vw-2rem)] sm:w-80 glass-panel border border-[var(--port-primary-container)]/30 shadow-[0_20px_60px_rgba(0,0,0,0.6),0_0_40px_var(--port-primary-container)] flex flex-col text-port-on-surface overflow-hidden z-50"
               >
                 {/* Header Bar */}
                 <div className="flex items-center justify-between px-5 py-3 border-b border-[var(--port-primary-container)]/20 bg-[var(--port-primary-container)]/5">
@@ -266,7 +276,15 @@ export default function PortfolioPage() {
                     <Settings size={14} className="text-[var(--port-primary-container)]" style={{ animation: 'spin 6s linear infinite' }} />
                     <span className="text-[10px] font-mono tracking-[0.3em] uppercase text-[var(--port-primary-container)]">SYS_CONFIG</span>
                   </div>
-                  <span className="text-[9px] font-mono text-port-outline-variant tracking-widest bg-[var(--port-primary-container)]/10 px-2 py-0.5 border border-[var(--port-primary-container)]/20">v1.0.4</span>
+                  <div className="flex items-center gap-4">
+                    <span className="text-[9px] font-mono text-port-outline-variant tracking-widest hidden sm:inline-block">v1.0.4</span>
+                    <button 
+                      onClick={() => setSettingsOpen(false)}
+                      className="p-1 hover:bg-[var(--port-primary-container)]/20 rounded-md transition-colors text-[var(--port-primary-container)]"
+                    >
+                      <X size={16} />
+                    </button>
+                  </div>
                 </div>
 
                 <div className="p-5 flex flex-col gap-6">
@@ -357,8 +375,70 @@ export default function PortfolioPage() {
         </div>
       </nav>
 
+      {/* Mobile Menu Overlay */}
+      <AnimatePresence>
+        {mobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, x: "100%" }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: "100%" }}
+            transition={{ type: "spring", damping: 25, stiffness: 200 }}
+            className="fixed inset-0 z-[55] bg-port-bg flex flex-col items-center justify-center lg:hidden"
+          >
+            {/* Cyberpunk background accent */}
+            <div className="absolute inset-0 opacity-10 pointer-events-none" style={{ backgroundImage: 'linear-gradient(var(--port-primary-container) 1px, transparent 1px), linear-gradient(90deg, var(--port-primary-container) 1px, transparent 1px)', backgroundSize: '40px 40px' }}></div>
+            
+            <div className="flex flex-col items-center gap-8 relative z-10 w-full px-8">
+              {[
+                { id: 'home', label: t.nav.home },
+                { id: 'edu', label: t.nav.edu },
+                { id: 'exp', label: t.nav.exp },
+                { id: 'skills', label: t.nav.skills },
+                { id: 'contact', label: t.nav.contact }
+              ].map((item, idx) => (
+                <motion.button
+                  key={item.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: idx * 0.1 }}
+                  onClick={() => {
+                    handleNavClick(item.id);
+                    setMobileMenuOpen(false);
+                  }}
+                  className={`text-3xl font-headline font-bold tracking-widest uppercase transition-all duration-300 ${activeTab === item.id ? 'text-[var(--port-primary-container)] drop-shadow-[0_0_10px_var(--port-primary-container)]' : 'text-port-outline hover:text-port-on-surface'}`}
+                >
+                  <span className="text-[14px] opacity-40 mr-4 font-mono">0{idx + 1}</span>
+                  {item.label}
+                </motion.button>
+              ))}
+
+              <motion.a
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.6 }}
+                href="/cv-sambatra.pdf"
+                download
+                className="mt-8 flex items-center gap-3 px-8 py-4 bg-[var(--port-primary-container)]/10 border border-[var(--port-primary-container)] text-[var(--port-primary-container)] font-label tracking-widest uppercase shadow-[0_0_15px_var(--port-primary-container)]/30 active:scale-95 transition-all"
+              >
+                <FileDown size={20} />
+                <span>{t.downloadCv}</span>
+              </motion.a>
+            </div>
+
+            {/* Bottom status */}
+            <div className="absolute bottom-12 left-0 w-full flex flex-col items-center gap-2 font-mono text-[10px] text-port-outline-variant tracking-[0.3em] uppercase">
+              <div className="flex items-center gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-[var(--port-primary-container)] animate-pulse"></span>
+                LINK_ACTIVE: SECURE
+              </div>
+              <div>VERSION: 2.0.4-PRO_MAX</div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center pt-24 px-8 overflow-hidden" id="home">
+      <section className="relative min-h-screen flex items-center pt-24 px-4 md:px-8 overflow-hidden" id="home">
         {/* Deep ambient background elements */}
         <div className="absolute top-1/4 left-1/4 w-[40vw] h-[40vw] bg-[var(--port-primary-container)] rounded-full mix-blend-screen opacity-[0.03] blur-[150px] pointer-events-none"></div>
         <div className="absolute bottom-1/4 right-1/4 w-[30vw] h-[30vw] bg-[var(--port-primary-container)] rounded-full mix-blend-screen opacity-[0.03] blur-[120px] pointer-events-none"></div>
@@ -370,10 +450,10 @@ export default function PortfolioPage() {
         <Crosshair size={32} className="absolute top-32 left-10 text-[var(--port-primary-container)] opacity-20 pointer-events-none" />
         <Crosshair size={32} className="absolute bottom-32 right-10 text-[var(--port-primary-container)] opacity-20 pointer-events-none" />
 
-        <div className="container mx-auto grid grid-cols-1 md:grid-cols-12 gap-12 relative z-10 w-full">
-          <div className="md:col-span-7 flex flex-col justify-center">
-            <Reveal delay={0.1}>
-              <div className="inline-flex items-center gap-3 mb-8 px-4 py-2 bg-[var(--port-primary-container)]/10 border border-[var(--port-primary-container)]/50 text-[var(--port-primary-container)] font-label text-[10px] tracking-[0.25em] uppercase self-start relative overflow-hidden group">
+        <div className="container mx-auto flex flex-col-reverse lg:grid lg:grid-cols-12 gap-12 relative z-10 w-full">
+          <div className="lg:col-span-7 flex flex-col justify-center text-center lg:text-left">
+            <Reveal delay={0.1} className="flex justify-center lg:justify-start">
+              <div className="inline-flex items-center gap-3 mb-8 px-4 py-2 bg-[var(--port-primary-container)]/10 border border-[var(--port-primary-container)]/50 text-[var(--port-primary-container)] font-label text-[10px] tracking-[0.25em] uppercase relative overflow-hidden group">
                 <div className="absolute inset-0 bg-[var(--port-primary-container)]/20 shadow-[0_0_15px_var(--port-primary-container)] translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000 ease-in-out"></div>
                 <Scan size={14} className="animate-pulse" />
                 {t.hero.sysInit}
@@ -381,7 +461,7 @@ export default function PortfolioPage() {
             </Reveal>
             
             <div className="mb-6" key={heroKey}>
-              <h1 className="text-6xl md:text-[5rem] lg:text-[6rem] font-headline font-black text-port-primary mb-2 leading-[0.9] tracking-tight relative">
+              <h1 className="text-4xl sm:text-6xl md:text-[5rem] lg:text-[6rem] font-headline font-black text-port-primary mb-2 leading-[0.9] tracking-tight relative">
                 {/* Glitch sub-layer */}
                 <div className="absolute -inset-1 opacity-20 blur-[3px] text-[var(--port-primary-container)] animate-pulse-subtle pointer-events-none" aria-hidden="true">
                   SAMBATRA<br/>Tahirindrazana
@@ -395,25 +475,25 @@ export default function PortfolioPage() {
                 initial={{ opacity: 0, x: -30, filter: "blur(10px)" }}
                 animate={{ opacity: 1, x: 0, filter: "blur(0px)" }}
                 transition={{ duration: 0.8, delay: 1.0, type: "spring", bounce: 0.3 }}
-                className="text-2xl md:text-3xl font-mono text-[var(--port-outline)] mt-8 tracking-widest flex items-center gap-4"
+                className="text-lg sm:text-2xl md:text-3xl font-mono text-[var(--port-outline)] mt-8 tracking-widest flex items-center justify-center lg:justify-start gap-4"
               >
-                <div className="h-px w-12 bg-[var(--port-outline-variant)]"></div>
+                <div className="h-px w-8 sm:w-12 bg-[var(--port-outline-variant)]"></div>
                 <span>{t.hero.jobTitle}</span>
               </motion.h2>
             </div>
             
             <Reveal delay={1.4}>
-              <div className="relative mb-12 pl-6 border-l-2 border-[var(--port-primary-container)]/30 group">
+              <div className="relative mb-12 pl-6 border-l-2 border-[var(--port-primary-container)]/30 group text-left">
                 {/* Decorative scanning line on paragraph text */}
                 <div className="absolute left-[-2px] inset-y-0 w-[2px] bg-gradient-to-b from-transparent via-[var(--port-primary-container)] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                <p className="text-lg md:text-xl text-port-on-surface-variant max-w-xl leading-relaxed font-body">
+                <p className="text-base sm:text-lg md:text-xl text-port-on-surface-variant max-w-xl leading-relaxed font-body">
                   {t.hero.bio}
                 </p>
               </div>
             </Reveal>
             
             <Reveal delay={1.6}>
-              <div className="flex flex-wrap gap-6">
+              <div className="flex flex-wrap justify-center lg:justify-start gap-4 sm:gap-6">
                 {/* Location Chip */}
                 <motion.div whileHover={{ y: -5, scale: 1.02 }} className="flex items-center gap-4 glass-panel bg-port-surface-low/80 backdrop-blur-md px-6 py-4 border border-port-outline-variant/30 hover:border-[var(--port-primary-container)]/50 relative cursor-default group overflow-hidden shadow-lg transition-all duration-300">
                   <div className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-bl from-[var(--port-primary-container)]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
@@ -444,13 +524,13 @@ export default function PortfolioPage() {
           </div>
           
           {/* Portrait Container */}
-          <div className="md:col-span-5 relative hidden md:flex items-center justify-center">
-            <Reveal delay={1.2} className="h-full w-full">
-              <TiltCard className="flex items-center justify-center h-[550px] w-full relative">
+          <div className="lg:col-span-5 relative flex items-center justify-center w-full">
+            <Reveal delay={1.2} className="w-full flex justify-center">
+              <TiltCard className="flex items-center justify-center h-[350px] sm:h-[450px] lg:h-[550px] w-full max-w-[400px] lg:max-w-none relative">
                 {/* Orbital Rings around Portrait */}
                 <div className="absolute rounded-full border border-[var(--port-primary-container)]/20 border-dashed w-[90%] h-[90%] animate-[spin_20s_linear_infinite] pointer-events-none"></div>
                 
-                <div className="relative w-4/5 h-[90%] rounded-2xl glass-panel border border-[var(--port-primary-container)]/30 hover:border-[var(--port-primary-container)]/80 transition-all duration-700 shadow-[0_0_30px_var(--port-primary-container)] hover:shadow-[0_0_50px_var(--port-primary-container)] overflow-hidden cursor-crosshair group flex justify-center mt-6">
+                <div className="relative w-full max-w-[280px] sm:max-w-none sm:w-4/5 h-[90%] mx-auto rounded-2xl glass-panel border border-[var(--port-primary-container)]/30 hover:border-[var(--port-primary-container)]/80 transition-all duration-700 shadow-[0_0_30px_var(--port-primary-container)] hover:shadow-[0_0_50px_var(--port-primary-container)] overflow-hidden cursor-crosshair group flex justify-center mt-6">
                   
                   {/* Cyberpunk corner brackets */}
                   <div className="absolute top-0 left-0 w-12 h-12 border-t-4 border-l-4 border-[var(--port-primary-container)] opacity-50 group-hover:opacity-100 transition-opacity z-20"></div>
@@ -494,7 +574,7 @@ export default function PortfolioPage() {
       </section>
 
       {/* Education Section */}
-      <section className="py-32 px-8 bg-port-surface-lowest relative overflow-hidden" id="education">
+      <section className="py-20 md:py-32 px-4 md:px-8 bg-port-surface-lowest relative overflow-hidden" id="education">
         {/* Background Grids and Accents */}
         <div className="absolute top-0 right-0 w-full h-[500px] opacity-20 pointer-events-none" style={{ backgroundImage: 'radial-gradient(ellipse at top right, var(--port-primary-container), transparent 60%)' }}></div>
 
@@ -559,7 +639,7 @@ export default function PortfolioPage() {
                 </div>
                 
                 <TiltCard>
-                  <div className="glass-panel p-10 pt-16 border border-port-outline-variant/20 hover:border-[var(--port-primary-container)]/50 transition-all duration-500 cursor-default group relative overflow-hidden h-full">
+                  <div className="glass-panel p-6 sm:p-10 pt-16 border border-port-outline-variant/20 hover:border-[var(--port-primary-container)]/50 transition-all duration-500 cursor-default group relative overflow-hidden h-full">
                     <div className="absolute inset-0 bg-gradient-to-br from-[var(--port-primary-container)]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
                     <div className="bracket-tl border-[var(--port-primary-container)] opacity-0 group-hover:opacity-100 transition-opacity"></div>
                     <div className="bracket-br border-[var(--port-primary-container)] opacity-0 group-hover:opacity-100 transition-opacity"></div>
@@ -602,7 +682,7 @@ export default function PortfolioPage() {
                 </div>
                 
                 <TiltCard>
-                  <div className="glass-panel p-10 pt-16 border border-port-outline-variant/20 hover:border-[var(--port-primary-container)]/50 transition-all duration-500 cursor-default group relative overflow-hidden h-full">
+                  <div className="glass-panel p-6 sm:p-10 pt-16 border border-port-outline-variant/20 hover:border-[var(--port-primary-container)]/50 transition-all duration-500 cursor-default group relative overflow-hidden h-full">
                     <div className="absolute inset-0 bg-gradient-to-br from-[var(--port-primary-container)]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
                     <div className="bracket-tl border-[var(--port-primary-container)] opacity-0 group-hover:opacity-100 transition-opacity"></div>
                     <div className="bracket-br border-[var(--port-primary-container)] opacity-0 group-hover:opacity-100 transition-opacity"></div>
@@ -640,7 +720,7 @@ export default function PortfolioPage() {
       </section>
 
       {/* Experience Section */}
-      <section className="py-24 px-8 bg-port-bg relative" id="experience">
+      <section className="py-16 md:py-24 px-4 md:px-8 bg-port-bg relative" id="experience">
         {/* Background ambient lighting */}
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-[var(--port-primary-container)]/5 rounded-full blur-[120px] pointer-events-none"></div>
 
@@ -685,7 +765,7 @@ export default function PortfolioPage() {
               return (
                 <Reveal key={proj.num} delay={i * 0.1} className="h-full">
                   <TiltCard className="h-full">
-                    <div className="glass-panel p-8 h-full border border-port-outline-variant/20 hover:border-port-outline-variant/40 group relative overflow-hidden transition-all duration-500 cursor-default flex flex-col justify-between">
+                    <div className="glass-panel p-6 sm:p-8 h-full border border-port-outline-variant/20 hover:border-port-outline-variant/40 group relative overflow-hidden transition-all duration-500 cursor-default flex flex-col justify-between">
                       {/* Hover ambient color */}
                       <div className="absolute top-0 right-0 w-32 h-32 opacity-0 group-hover:opacity-20 transition-all duration-700 blur-[40px] rounded-full pointer-events-none" style={{ backgroundColor: proj.color }}></div>
                       
@@ -730,7 +810,7 @@ export default function PortfolioPage() {
           
           <Reveal delay={0.4}>
             <div className="mt-8 relative overflow-hidden glass-panel p-1 border border-port-outline-variant/20 group hover:border-port-outline-variant/40 transition-colors">
-              <div className="bg-port-surface p-10 lg:p-14 relative z-10 border border-port-bg/50 flex flex-col lg:flex-row items-center gap-12 group-hover:bg-port-surface-highest/20 transition-colors">
+              <div className="bg-port-surface p-6 sm:p-10 lg:p-14 relative z-10 border border-port-bg/50 flex flex-col lg:flex-row items-center gap-12 group-hover:bg-port-surface-highest/20 transition-colors">
                 <div className="flex-1 w-full">
                   <div className="flex justify-between items-start mb-6">
                     <span className="p-4 glass-panel border border-port-outline-variant/30 rounded-xl" style={{ color: 'var(--port-primary-container)', boxShadow: '0 0 20px rgba(161, 140, 209, 0.1)' }}>
@@ -782,7 +862,7 @@ export default function PortfolioPage() {
       </section>
 
       {/* Tech Stack Section */}
-      <section className="py-24 px-8 bg-port-surface-low relative overflow-hidden" id="skills">
+      <section className="py-16 md:py-24 px-4 md:px-8 bg-port-surface-low relative overflow-hidden" id="skills">
         <div className="container mx-auto relative z-10">
           <Reveal>
             <div className="mb-16">
@@ -903,9 +983,9 @@ export default function PortfolioPage() {
       </section>
 
       {/* Contact Section */}
-      <section className="py-24 px-8 bg-port-bg" id="contact">
+      <section className="py-16 md:py-24 px-4 md:px-8 bg-port-bg" id="contact">
         <div className="container mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-24">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24">
             <Reveal>
               <div className="h-full flex flex-col justify-center">
                 <div className="mb-12">
